@@ -9,6 +9,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/*
+	*The entity for comments
+*/
+
 @Entity
 @Table( name="commnts")
 public class Comment {

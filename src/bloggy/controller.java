@@ -23,7 +23,6 @@ import com.apple.jobjc.PrimitiveCoder.SIntCoder;
 
 import bloggy.entities.Comment;
 import bloggy.entities.Post;
-import bloggy.help.State;
 
 /**
  * Servlet implementation class start
@@ -56,6 +55,7 @@ public class controller extends HttpServlet {
 		
 		String action = request.getRequestURI().replace("/Blog/", "");
 		
+		//checks whitch action to take
 		if("createNewPost".equals(action)){
 			httpSession.setAttribute("newPost", true);
 			httpSession.setAttribute("inPost", false);
@@ -75,6 +75,9 @@ public class controller extends HttpServlet {
 		showView(request, response);
 	}
 
+/*
+	Loads current site
+*/
 	private void showView(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession();
@@ -107,6 +110,7 @@ public class controller extends HttpServlet {
 		
 		System.out.println(action);
 		
+		//checks whitch action to take
 		if("comment".equals(action)){
 			String name = request.getParameter("name");
 			String commentText = request.getParameter("comment");
@@ -136,7 +140,6 @@ public class controller extends HttpServlet {
 		
 		String contextPath = request.getContextPath();
 		
-		//showView(request, response);
 		response.sendRedirect(contextPath +"/"+ action);
 	}
 
